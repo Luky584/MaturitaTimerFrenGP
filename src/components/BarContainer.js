@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-
+import Bar from "./Bar";
 
 class BarContainer extends Component {
  
-    constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
         examParts: [
@@ -33,7 +33,7 @@ class BarContainer extends Component {
             },
         ]
     };
-    }
+  }
 
   componentDidMount() {
       console.log("barcontainer mounted");
@@ -44,18 +44,13 @@ class BarContainer extends Component {
   }
 
   render() {
-    let totalDuration = 0;
-    this.state.examParts.map((exam) =>
-        totalDuration+=exam.duration
-    );
-
-    let barParts = this.state.examParts.map((exam) =>
-        <div className="bar" style={{width:(exam.duration/totalDuration)*100 + "%"}}>{exam.title}</div> 
-    );
-
     return (
         <div className="bar-container">
-            {barParts}
+            {
+                this.state.examParts.map((exam, index) =>
+                    <Bar exam={exam} key={index}/>
+                )
+            }
         </div>
     )
   }

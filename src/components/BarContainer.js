@@ -39,6 +39,28 @@ class BarContainer extends Component {
     };
   };
 
+  checkIfexamTimePassed = (timerTime, timerStart) => {
+    let examTime = 0;
+    this.state.examParts.forEach((exam, index) => {
+      examTime+=exam.duration*60*1000;
+      if (timerTime < examTime && examTime < Date.now() - timerStart){ // check if one of examparts ended
+        console.log("Got to another setcion with examTime: " + examTime);
+
+        if (index === this.state.examParts.length-1) {
+          console.log ("Lastone yeey!");
+          this.stopTimer();
+          this.setState({ // Set to max possible time
+            timerTime: examTime
+          });
+        }
+      } else {
+        this.setState({
+          timerTime: Date.now() - this.state.timerStart
+        });
+      }
+    });
+  };
+
   startTimer = () => {
     this.setState({
       timerOn: true,
@@ -46,9 +68,7 @@ class BarContainer extends Component {
       timerStart: Date.now() - this.state.timerTime
     });
     this.timer = setInterval(() => {
-      this.setState({
-        timerTime: Date.now() - this.state.timerStart
-      });
+      this.checkIfexamTimePassed(this.state.timerTime, this.state.timerStart);
     }, 10);
   };
 
@@ -77,15 +97,15 @@ class BarContainer extends Component {
     let totalExamTime = 0;
     this.state.examParts.map((exam) => totalExamTime+= exam.duration); // calculate total exam duration
 
-    let centiseconds = ("0" + (Math.floor(timerTime / 10) % 100)).slice(-2);
-    let seconds = ("0" + (Math.floor(timerTime / 1000) % 60)).slice(-2);
-    let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);
+    // let centiseconds = ("0" + (Math.floor(timerTime / 10) % 100)).slice(-2);
+    // let seconds = ("0" + (Math.floor(timerTime / 1000) % 60)).slice(-2);
+    // let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);
 
     let percentPassed = (timerTime/600)/totalExamTime;
-
     let minutesLeft = Math.floor((totalExamTime*60*1000-timerTime)/60/1000);
     let secondsLeft = ("0" + (Math.floor((totalExamTime*60*1000-timerTime) / 1000) % 60)).slice(-2);
     let centiSecondsLeft = ("0" + (Math.floor((totalExamTime*60*1000-timerTime) / 10) % 100)).slice(-2);
+
     return (
         <>
         <div className="bar-container">
@@ -97,10 +117,13 @@ class BarContainer extends Component {
             <ProgressBar left={percentPassed}></ProgressBar>
         </div>
 
-        <div className="timer-display">
-          {minutesLeft} : {secondsLeft} : {centiSecondsLeft}
-        </div>
-
+        {percentPassed === 100 && (
+          <h1>The end!</h1>
+        )}
+        
+        {(this.state.timerTime >= 0 || this.state.timerOn === true) && ( // Show only if 
+          <div className="timer-display"> {minutesLeft} : {secondsLeft} : {centiSecondsLeft}</div>
+        )}
         
         {this.state.timerOn === false && this.state.timerTime === 0 && (
           <button onClick={this.startTimer}>Start</button>
@@ -108,7 +131,7 @@ class BarContainer extends Component {
         {this.state.timerOn === true && (
           <button onClick={this.stopTimer}>Stop</button>
         )}
-        {this.state.timerOn === false && this.state.timerTime > 0 && (
+        {this.state.timerOn === false && this.state.timerTime > 0 && percentPassed < 100 && (
           <button onClick={this.startTimer}>Resume</button>
         )}
         {this.state.timerOn === false && this.state.timerTime > 0 && (

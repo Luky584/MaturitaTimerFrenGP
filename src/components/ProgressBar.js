@@ -6,7 +6,7 @@ class ProgressBar extends Component {
     let left = this.props.left;
     if (left>99.6) left = 99.6;
     return (
-            <div className="progressbar" style={{left:(left) + "%"}}>ProgressBar</div>
+            <div className="progressbar" style={{left:(left) + "%"}}></div>
     )
   }
 

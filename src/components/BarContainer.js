@@ -14,7 +14,7 @@ class BarContainer extends Component {
         examParts: [
             {
                 title: "Introduction",
-                duration: 0.1,
+                duration: 0.5,
             },
             {
                 title: "P1 Questions",

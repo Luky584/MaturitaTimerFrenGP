@@ -136,16 +136,16 @@ class BarContainer extends Component {
         )}
         
         {this.state.timerOn === false && this.state.timerTime === 0 && (
-          <button onClick={this.startTimer}>Start</button>
+          <button onClick={this.startTimer} className="btn-start grow">Start</button>
         )}
         {this.state.timerOn === true && (
-          <button onClick={this.stopTimer}>Stop</button>
+          <button onClick={this.stopTimer} className="btn-stop grow">Stop</button>
         )}
         {this.state.timerOn === false && this.state.timerTime > 0 && percentPassed < 100 && (
-          <button onClick={this.startTimer}>Resume</button>
+          <button onClick={this.startTimer} className="btn-start grow">Resume</button>
         )}
         {this.state.timerOn === false && this.state.timerTime > 0 && (
-          <button onClick={this.resetTimer}>Reset</button>
+          <button onClick={this.resetTimer} className="btn-stop grow">Reset</button>
         )}
         </>
     )

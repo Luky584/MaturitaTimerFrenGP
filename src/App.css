@@ -27,6 +27,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -55,27 +56,120 @@
   box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
 }
 
-.bar{
-    top: 0;
-    bottom: 0;
-    left: 0;
-    height: 100%;
-    background-color: #161616;
-    z-index: 1;
-    overflow: hidden;
-    -webkit-transition: all ease 1s;
-    transition: all ease 1s;
-    -webkit-box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
-    box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
-    writing-mode: tb-rl;
-    transform: rotate(180deg);
+.bar {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  background-color: #161616;
+  z-index: 1;
+  overflow: hidden;
+  -webkit-transition: all ease 1s;
+  transition: all ease 1s;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+  box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+  writing-mode: tb-rl;
+  transform: rotate(180deg);
 }
 
-.progressbar{
-    position: absolute;
-    background: red;
-    height: 100%;
-    width: 5px;
-    z-index: 2;
-    transition: all ease 1s;
+.progressbar {
+  position: absolute;
+  background: red;
+  height: 100%;
+  width: 5px;
+  z-index: 2;
+  transition: all ease 1s;
 }
+
+.timer-display {
+  font-size: 2.5rem;
+  padding: 1rem;
+  font-weight: bold;
+}
+
+.btn-start {
+  --tw-space-y-reverse: 0;
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #e5e7eb;
+  --tw-ring-inset: var(--tw-empty, );
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgba(59, 130, 246, 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  font-family: inherit;
+  margin: 0;
+  background-image: none;
+  --tw-bg-opacity: 1;
+  background-color: rgba(29, 78, 216, var(--tw-bg-opacity));
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: .75rem;
+  line-height: 1.5rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  text-align: center;
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+  text-transform: uppercase;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: 150ms;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  margin-bottom: 1.3rem;
+}
+
+.btn-stop {
+  box-sizing: border-box;
+  padding-top: 74rem;
+  border-style: solid;
+  --tw-shadow: 0 0 #0000;
+  --tw-ring-inset: var(--tw-empty, );
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgba(59, 130, 246, 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  font-family: inherit;
+  background-image: none;
+  background-color: transparent;
+  --tw-border-opacity: 1;
+  border-color: rgba(239, 68, 68, var(--tw-border-opacity));
+  border-radius: 9999px;
+  border-width: 2px;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.3rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
+  --tw-text-opacity: 1;
+  color: rgba(239, 68, 68, var(--tw-text-opacity));
+  text-transform: uppercase;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: 150ms;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); }

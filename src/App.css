@@ -3,13 +3,13 @@
 }
 
 .App-logo {
-  height: 12vmin;
+  height: 1.3rem;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 10s linear;
   }
 }
 
@@ -173,3 +173,11 @@
 
 .grow { transition: all .2s ease-in-out; }
 .grow:hover { transform: scale(1.1); }
+
+.copyright{
+  font-size: 0.7rem;
+  text-align: left;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}

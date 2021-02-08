@@ -21,19 +21,19 @@ class BarContainer extends Component {
                 duration: 3,
             },
             {
-                title: "P2 Task1",
+                title: "P2 Describing",
                 duration: 2,
             },
             {
-                title: "P2 Task2",
-                duration: 2,
+                title: "P2 Comparing",
+                duration: 1.5,
             },
             {
-                title: "P3 TOPIC",
+                title: "P3 Topic",
                 duration: 5,
             },
             {
-                title: "P4 TEXT",
+                title: "P4 Text",
                 duration: 3,
             },
         ],
@@ -43,6 +43,7 @@ class BarContainer extends Component {
     };
   };
 
+
   checkIfexamTimePassed = (timerTime, timerStart) => {
     let examTime = 0;
     this.state.examParts.forEach((exam, index) => {
@@ -50,7 +51,8 @@ class BarContainer extends Component {
       if (timerTime < examTime && examTime < Date.now() - timerStart){ // check if one of examparts ended
         console.log("Got to another setcion with examTime: " + examTime);
 
-        new Audio(next_exam_part_notification).play(); // Play sound effect
+        const a = new Audio(next_exam_part_notification)
+        a.play(); // Play sound effect
 
         if (index === this.state.examParts.length-1) {
           console.log ("Lastone yeey!");

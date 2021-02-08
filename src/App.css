@@ -2,9 +2,19 @@
   text-align: center;
 }
 
+h1 {
+  padding-top: 4rem;
+}
+
 .App-logo {
   height: 1.3rem;
   pointer-events: none;
+}
+
+.frengp-logo {
+  height: 1.3rem;
+  pointer-events: none;
+  vertical-align: sub;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -171,10 +181,15 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.grow { transition: all .2s ease-in-out; }
-.grow:hover { transform: scale(1.1); }
+.grow {
+  transition: all .2s ease-in-out;
+}
 
-.copyright{
+.grow:hover {
+  transform: scale(1.1);
+}
+
+.copyright {
   font-size: 0.7rem;
   text-align: left;
   position: absolute;

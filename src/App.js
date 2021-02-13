@@ -11,7 +11,7 @@ function App() {
         <BarContainer></BarContainer>
 
         <p className="copyright">
-          <img src={frengp_logo} className="frengp-logo" alt="logo"/>FrenGP.cz
+          <img src={frengp_logo} className="frengp-logo" alt="logo"/> FrenGP.cz
           <br/>
           Made with React<img src={logo} className="App-logo" alt="logo" />
           <br/>
